@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Quang-Loc Pham — Resume Website" />
+  <title>Quang-Loc Pham | Resume</title>
+
+  <script>
+    (function () {
+      const t = localStorage.getItem("theme");
+      if (t) document.documentElement.setAttribute("data-theme", t);
+    })();
+  </script>
+
+  <link rel="stylesheet" href="./main.css">
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <!-- Brand + Avatar -->
+      <div class="brand">
+        <button class="avatar" id="avatarBtn" type="button" aria-label="Change avatar">
+          <img id="avatarImg" src="Loc.png" alt="Avatar" />
+          <span class="avatar-ring" aria-hidden="true"></span>
+        </button>
+        <input id="avatarInput" type="file" accept="image/*" hidden />
+
+        <div class="brand-text">
+          <div class="name">Quang-Loc Pham</div>
+          <span class="sub">Phạm Quang Lộc • Resume Website</span>
+        </div>
+      </div>
+
+      <!-- Nav (match PDF sections) -->
+      <nav aria-label="Primary navigation" class="nav">
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#skills">Skills</a>
+        <a href="#publications">Publications</a>
+        <a href="#references">References</a>
+      </nav>
+
+      <!-- Actions -->
+      <div class="actions">
+        <button class="btn" id="themeBtn" type="button" title="Toggle theme (T)">
+          Theme <span class="kbd">T</span>
+        </button>
+        <button class="btn" id="printBtn" type="button" title="Print / Save as PDF (P)">
+          Print <span class="kbd">P</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <!-- HERO / ABOUT -->
+    <section class="hero" id="about">
+      <div class="hero-inner">
+        <div>
+          <h1>Quang-Loc Pham</h1>
+          <p class="muted" style="margin-top:-6px">Phạm Quang Lộc (Vietnamese)</p>
+
+          <p>
+            B.Sc. student in Mathematics Education at the Department of Mathematics and Informatics,
+            Ho Chi Minh City University of Education (HCMUE), Vietnam.
+          </p>
+
+          <div class="hero-badges" aria-label="Highlights">
+            <span class="pill">
+              Email:
+              <a id="emailLink" href="mailto:locpq.maths@gmail.com">
+                <strong id="emailText">locpq.maths@gmail.com</strong>
+              </a>
+            </span>
+            <span class="pill">English: intermediate (reading / writing / speaking)</span>
+          </div>
+
+          <div class="contact-row">
+            <a class="btn primary" href="mailto:locpq.maths@gmail.com">Email me</a>
+            <a class="btn" href="https://drive.google.com/file/d/12UhCHLbU8QODJZriWlIJocOO6XjAsLXz/view?usp=sharing" target="_blank" rel="noopener">Here's my CV</a>
+
+          </div>
+
+          <div class="small muted" id="toast" style="display:none;margin-top:8px"></div>
+        </div>
+
+        <div class="hero-right">
+          <button class="hero-avatar" id="heroAvatarBtn" type="button" aria-label="Change avatar">
+            <span class="hero-avatar-ring" aria-hidden="true"></span>
+            <img id="heroAvatarImg" src="Loc.png" alt="Avatar" />
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEW LAYOUT: Main center + Sidebar right -->
+    <div class="layout">
+      <!-- MAIN (center) -->
+      <div class="main">
+        <section class="card" id="education">
+          <h2>Education</h2>
+          <div class="timeline">
+            <div class="titem">
+              <div class="when">2022–Present</div>
+              <div>
+                <h3>B.Sc. in Mathematics Education</h3>
+                <div class="meta">Department of Mathematics and Informatics</div>
+                <div class="meta">Ho Chi Minh City University of Education (HCMUE), Vietnam</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="card" id="publications">
+          <h2>Publications</h2>
+
+          <ol class="publist" id="pubList">
+            <li class="pub-card" data-text="2026 topology-driven rough set classification ball mapper coverings healthcare intelligence 18th asian conference on intelligent information and database systems">
+              <div class="pub-head">
+                <span class="pub-year">2026</span>
+                <span class="pub-title">Topology-Driven Rough Set Classification Using Ball Mapper Coverings for Healthcare Intelligence.</span>
+              </div>
+              <div class="pub-venue">18th Asian Conference on Intelligent Information and Database Systems.</div>
+              <div class="pub-auth muted small">Bui, Q.-T.; Pham, Q.-L.; Pham, M.-K.; Bui, M.-H.; Pham, P.; Vo, B.</div>
+            </li>
+
+            <li class="pub-card" data-text="2025 improving mapper-based coverings derivative transformations in rough set information and communication technology dalat vietnam publishing house for science and technology 411 415">
+              <div class="pub-head">
+                <span class="pub-year">2025</span>
+                <span class="pub-title">Improving Mapper-based Coverings Through Derivative Transformations in Rough Set.</span>
+              </div>
+              <div class="pub-venue">Information and Communication Technology, Dalat, Vietnam: Publishing House for Science and Technology, pp. 411–415.</div>
+              <div class="pub-auth muted small">Bui, Q.-T.; Pham, Q.-L.; Duong Van, H.</div>
+            </li>
+          </ol>
+        </section>
+      </div>
+
+      <!-- SIDEBAR (right) -->
+      <aside class="sidebar">
+        <section class="card" id="skills">
+          <h2>Skills</h2>
+
+          <div class="skill-group">
+            <div>
+              <div class="muted small" style="margin-bottom:6px">Languages</div>
+              <div class="skill-row">
+                <span class="tag">English</span>
+                <span class="tag muted">Intermediate (reading, writing, speaking)</span>
+              </div>
+            </div>
+
+            <div>
+              <div class="muted small" style="margin-bottom:6px">Coding</div>
+              <div class="skill-row">
+                <span class="tag">Python</span>
+              </div>
+            </div>
+
+            <div>
+              <div class="muted small" style="margin-bottom:6px">Mathematical Software</div>
+              <div class="skill-row">
+                <span class="tag">Maple</span>
+              </div>
+            </div>
+
+            <div>
+              <div class="muted small" style="margin-bottom:6px">Productivity</div>
+              <div class="skill-row">
+                <span class="tag">Microsoft Excel</span>
+                <span class="tag">Word</span>
+                <span class="tag">PowerPoint</span>
+              </div>
+            </div>
+
+            <div>
+              <div class="muted small" style="margin-bottom:6px">Miscellaneous</div>
+              <div class="skill-row">
+                <span class="tag">Academic research</span>
+                <span class="tag">LaTeX typesetting</span>
+                <span class="tag">Publishing</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="card" id="certifications">
+          <h2>Certifications</h2>
+
+          <div class="timeline" style="margin-top:10px">
+            <div class="titem">
+              <div class="when">2025</div>
+              <div>
+                <h3 style="margin:0;font-size:14px">Vietnamese Standardized Test of English Proficiency (B2)</h3>
+              </div>
+            </div>
+
+            <div class="titem">
+              <div class="when">2024</div>
+              <div>
+                <h3 style="margin:0;font-size:14px">Third Prize — Faculty Student Research Conference</h3>
+                <div class="meta">Ho Chi Minh City University of Education (HCMUE), Vietnam</div>
+              </div>
+            </div>
+
+            <div class="titem">
+              <div class="when">2023</div>
+              <div>
+                <h3 style="margin:0;font-size:14px">Certificate of Completion — Training Program on Multiple-Choice Problem Solving in High School Mathematics using Handheld Calculators</h3>
+                <div class="meta">Ho Chi Minh City University of Education (HCMUE), Vietnam</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="card" id="references">
+          <h2>References</h2>
+          <div class="titem" style="grid-template-columns: 1fr; gap:8px">
+            <div>
+              <h3 style="margin:0;font-size:14px">Dr. Quang-Thinh Bui</h3>
+              <div class="meta">Faculty of Education and Basic Sciences</div>
+              <div class="meta">Tien Giang University</div>
+              <div class="meta">119 Ap Bac, Ward 5, My Tho City, Dong Thap Province, Vietnam</div>
+              <div style="margin-top:8px">
+                <a class="btn" href="mailto:buiquangthinh@tgu.edu.vn">buiquangthinh@tgu.edu.vn</a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </aside>
+    </div>
+
+    <footer>
+      © <span id="year"></span> Quang-Loc Pham — Resume Website.
+    </footer>
+  </main>
+
+  <script src="./main.js"></script>
+</body>
+</html>

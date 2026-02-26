@@ -1,0 +1,450 @@
+:root{
+  --bg:#0b0d10;
+  --panel:#11151b;
+  --text:#e8edf3;
+  --muted:#a9b4c2;
+  --line:rgba(255,255,255,.10);
+  --brand:#7aa2f7;
+  --brand2:#34d399;
+  --shadow:0 10px 30px rgba(0,0,0,.35);
+  --radius:18px;
+  --max:1180px;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono",monospace;
+  --sans:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";
+}
+
+[data-theme="light"]{
+  --bg:#f6f7fb;
+  --panel:#ffffff;
+  --text:#0f172a;
+  --muted:#475569;
+  --line:rgba(15,23,42,.12);
+  --brand:#2563eb;
+  --brand2:#16a34a;
+  --shadow:0 12px 28px rgba(2,6,23,.10);
+}
+
+*{box-sizing:border-box}
+html, body {
+  height: auto;          /* không khóa chiều cao */
+  min-height: 100%;
+  overflow-x: hidden;    /* chỉ ẩn ngang */
+  overflow-y: auto;      /* cho phép cuộn dọc */
+}
+body{
+  margin:0;
+  font-family:var(--sans);
+  color:var(--text);
+  /* Background “clean” hơn: ít loang xanh/lam */
+  background:
+    radial-gradient(900px 420px at 15% -10%, rgba(122,162,247,.10), transparent 60%),
+    radial-gradient(900px 420px at 85% 0%, rgba(255,255,255,.04), transparent 60%),
+    linear-gradient(180deg, rgba(255,255,255,.03), transparent 35%),
+    var(--bg);
+  line-height:1.55;
+}
+
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--max);margin:0 auto;padding:18px 18px 64px}
+section{scroll-margin-top:92px}
+
+.topbar{
+  position:sticky;top:0;z-index:50;
+  backdrop-filter:blur(10px);
+  background:rgba(10,12,16,.62);
+  border-bottom:1px solid var(--line);
+}
+[data-theme="light"] .topbar{background:rgba(246,247,251,.72)}
+
+.topbar-inner{
+  max-width:var(--max);
+  margin:0 auto;
+  padding:10px 18px;
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  align-items:center;
+  gap:14px;
+}
+
+.brand{display:flex;align-items:center;gap:12px;min-width:240px}
+.brand-text .name{font-weight:800;letter-spacing:.2px}
+.brand-text .sub{display:block;font-size:12px;color:var(--muted);margin-top:-2px}
+
+/* Avatar */
+.avatar{position:relative;width:42px;height:42px;border-radius:999px;border:0;background:transparent;cursor:pointer;padding:0}
+.avatar-ring{position:absolute;inset:-2px;border-radius:999px;background:linear-gradient(135deg,var(--brand),var(--brand2));z-index:0;opacity:.95}
+.avatar img,.avatar .avatar-fallback{position:absolute;inset:2px;width:calc(100% - 4px);height:calc(100% - 4px);border-radius:999px;z-index:1}
+.avatar img{display:block;object-fit:cover;background:color-mix(in oklab,var(--panel) 90%,transparent)}
+.avatar .avatar-fallback{display:flex;align-items:center;justify-content:center;font-weight:800;background:color-mix(in oklab,var(--panel) 92%,transparent)}
+.avatar.has-img .avatar-fallback{display:none}
+
+.nav{display:flex;justify-content:center;align-items:center;gap:10px;flex-wrap:wrap}
+.nav a{font-size:13px;color:var(--muted);padding:8px 10px;border-radius:999px;border:1px solid transparent}
+.nav a.active{color:var(--text);border-color:var(--line);background:color-mix(in oklab,var(--panel) 85%,transparent)}
+
+.actions{display:flex;align-items:center;gap:10px;justify-content:flex-end}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:9px 12px;border-radius:999px;border:1px solid var(--line);
+  background:color-mix(in oklab,var(--panel) 90%,transparent);
+  color:var(--text);font-size:13px;cursor:pointer;
+  transition:transform .12s ease;
+}
+.btn:hover{transform:translateY(-1px)}
+.btn.primary{
+  border-color:color-mix(in oklab,var(--brand) 55%,var(--line));
+  background:linear-gradient(135deg,
+    color-mix(in oklab,var(--brand) 25%,var(--panel)),
+    color-mix(in oklab,var(--brand2) 18%,var(--panel)));
+}
+.kbd{
+  font-family:var(--mono);
+  font-size:11px;
+  color:var(--muted);
+  border:1px solid var(--line);
+  padding:2px 6px;
+  border-radius:8px;
+}
+
+/* HERO */
+.hero{
+  margin-top:14px;
+  border:1px solid var(--line);
+  background:color-mix(in oklab,var(--panel) 92%,transparent);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  overflow:hidden;
+  position:relative;
+}
+.hero:before{
+  content:"";
+  position:absolute;inset:-2px;
+  background:
+    radial-gradient(700px 160px at 25% 10%, rgba(122,162,247,.12), transparent 60%),
+    radial-gradient(700px 160px at 75% 0%, rgba(52,211,153,.07), transparent 60%);
+  pointer-events:none;
+}
+.hero-inner{
+  position:relative;
+  display:grid;
+  grid-template-columns:1.35fr .65fr;
+  gap:16px;
+  padding:22px;
+}
+.hero h1{margin:0;font-size:34px;letter-spacing:.2px;line-height:1.15}
+.hero p{margin:10px 0 0;color:var(--muted);max-width:72ch}
+.hero-badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.pill{font-size:12px;padding:7px 10px;border-radius:999px;border:1px solid var(--line);background:color-mix(in oklab,var(--panel) 92%,transparent);color:var(--muted)}
+.pill strong{color:var(--text)}
+.contact-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.hero-right{display:grid;gap:10px}
+.mini-card{border:1px solid var(--line);border-radius:14px;background:color-mix(in oklab,var(--panel) 96%,transparent);padding:12px}
+.mini-title{font-size:12px;color:var(--muted);margin-bottom:6px}
+.mini-text{font-size:13px;color:var(--text)}
+
+section.card{
+  border:1px solid var(--line);
+  background:color-mix(in oklab,var(--panel) 92%,transparent);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:18px;
+}
+section.card h2{margin:0 0 12px;font-size:16px;letter-spacing:.2px}
+.muted{color:var(--muted)}
+.small{font-size:13px}
+
+/* NEW LAYOUT */
+.layout{
+  display:grid;
+  grid-template-columns: minmax(640px, 1fr) 360px;  /* main center + right sidebar */
+  gap:18px;
+  margin-top:18px;
+  align-items:start;
+}
+.main{display:grid;gap:18px}
+.sidebar{
+  display:grid;
+  gap:18px;
+
+  position: sticky;
+  top: 92px;                 /* dưới header */
+  align-self: start;
+
+  max-height: calc(100vh - 92px - 18px); /* luôn nằm trong màn hình */
+  overflow: auto;            /* sidebar dài thì nó tự scroll */
+  padding-right: 4px;        /* chừa chỗ scrollbar */
+}
+
+/* Timeline */
+.timeline{display:grid;gap:14px}
+.titem{
+  display:grid;
+  grid-template-columns:110px 1fr;
+  gap:12px;
+  padding:12px;
+  border-radius:14px;
+  border:1px solid var(--line);
+  background:color-mix(in oklab,var(--panel) 96%,transparent);
+}
+.titem .when{font-family:var(--mono);font-size:12px;color:var(--muted);padding-top:3px}
+.titem h3{margin:0;font-size:14px}
+.titem .meta{margin-top:2px;color:var(--muted);font-size:12.5px}
+.titem ul{margin:8px 0 0 18px;padding:0}
+.titem li{margin:4px 0;color:var(--muted)}
+.titem li strong{color:var(--text)}
+
+/* Skills */
+.skill-group{display:grid;gap:10px}
+.skill-row{display:flex;flex-wrap:wrap;gap:8px}
+.tag{
+  font-size:12px;
+  padding:6px 10px;
+  border-radius:999px;
+  border:1px solid var(--line);
+  background:color-mix(in oklab,var(--panel) 94%,transparent);
+  color:var(--text);
+}
+.tag.muted{color:var(--muted)}
+
+/* Publications - grid "đều" */
+.pub-top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+.search{
+  flex:1;min-width:240px;
+  display:flex;align-items:center;gap:10px;
+  padding:10px 12px;border-radius:999px;border:1px solid var(--line);
+  background:color-mix(in oklab,var(--panel) 96%,transparent);
+}
+.search-icon{font-family:var(--mono);color:var(--muted)}
+.search input{width:100%;border:none;outline:none;background:transparent;color:var(--text);font-size:13px}
+
+/* turn OL into grid cards */
+.publist{margin:0;padding:0;list-style:none;counter-reset:pub;display:grid;gap:12px}
+.publist.pubgrid{grid-template-columns:repeat(2, minmax(0,1fr))}
+.pub-card{
+  counter-increment:pub;
+  position:relative;
+  padding:12px 12px 12px 46px;
+  border:1px solid var(--line);
+  border-radius:14px;
+  background:color-mix(in oklab,var(--panel) 96%,transparent);
+}
+.pub-card::before{
+  content: counter(pub) ".";
+  position:absolute;
+  left:12px; top:12px;
+  font-family:var(--mono);
+  font-size:12px;
+  color:var(--muted);
+}
+.pub-head{display:flex;gap:10px;align-items:flex-start}
+.pub-year{font-family:var(--mono);font-size:12px;color:var(--muted);min-width:44px}
+.pub-title{font-weight:700;color:var(--text)}
+.pub-venue{margin-top:6px;color:var(--muted);font-style:italic}
+.pub-auth{margin-top:6px}
+
+/* Footer */
+footer{margin-top:18px;color:var(--muted);font-size:12.5px;text-align:center}
+
+/* Responsive */
+@media (max-width: 1080px){
+  .layout{grid-template-columns: 1fr}
+  .sidebar{position:static}
+  .publist.pubgrid{grid-template-columns:1fr}
+  .hero-inner{grid-template-columns:1fr}
+  .nav{justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;gap:6px}
+}
+
+/* Print */
+@media print{
+  .topbar, .contact-row, .actions, .pill, .pub-top {display:none !important;}
+  body{background:#fff}
+  section.card, .hero{box-shadow:none}
+  a{text-decoration:none}
+}
+
+/* HERO avatar (replace Focus + Shortcuts) */
+.hero-right{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+}
+
+.hero-avatar{
+  position:relative;
+  width:170px;
+  height:170px;
+  border-radius:999px;
+  border:0;
+  background:transparent;
+  cursor:pointer;
+  padding:0;
+}
+
+.hero-avatar-ring{
+  position:absolute;
+  inset:-3px;
+  border-radius:999px;
+  background: linear-gradient(135deg, var(--brand), var(--brand2));
+  opacity:.95;
+}
+
+.hero-avatar img,
+.hero-avatar-fallback{
+  position:absolute;
+  inset:3px;
+  width:calc(100% - 6px);
+  height:calc(100% - 6px);
+  border-radius:999px;
+  z-index:1;
+}
+
+.hero-avatar img{
+  display:block;
+  object-fit:cover;
+  background: color-mix(in oklab, var(--panel) 92%, transparent);
+  border:1px solid var(--line);
+}
+
+.hero-avatar-fallback{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:900;
+  letter-spacing:.4px;
+  background: color-mix(in oklab, var(--panel) 92%, transparent);
+  border:1px solid var(--line);
+}
+
+.hero-avatar.has-img .hero-avatar-fallback{ display:none; }
+
+.hero-avatar-hint{
+  text-align:center;
+}
+/* =========================
+   Publications (row layout) — typography like other cards
+   ========================= */
+
+/* list */
+.publist.pubstack{
+  margin:0;
+  padding:0;
+  list-style:none;
+  display:grid;
+  gap:12px;
+}
+
+/* row card: đồng bộ style với .titem */
+.pub-row{
+  display:grid;
+  grid-template-columns:44px 1fr;
+  gap:12px;
+  align-items:start;
+
+  padding:12px;
+  border-radius:14px;
+  border:1px solid var(--line);
+  background:color-mix(in oklab,var(--panel) 96%,transparent);
+}
+
+/* badge C/J */
+.pub-bubble{
+  --bubble: var(--brand);
+  width:40px;
+  height:40px;
+  border-radius:999px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  font-family:var(--mono);
+  font-size:12px;
+  font-weight:900;
+
+  color:var(--bubble);
+  background:color-mix(in oklab,var(--bubble) 12%, var(--panel));
+  border:1px solid color-mix(in oklab,var(--bubble) 55%, var(--line));
+}
+
+.pub-type-conf{ --bubble:#ef4444; }     /* C */
+.pub-type-journal{ --bubble:var(--brand); } /* J */
+
+.pub-main{ min-width:0; }
+
+/* title: cỡ tương tự heading trong card (không phình) */
+.pubt-title a{
+  display:inline-block;
+  font-weight:800;
+  font-size:16px;
+  line-height:1.25;
+
+  color:var(--text);          /* giống các phần trên */
+  text-decoration:none;
+
+  overflow-wrap:anywhere;
+  hyphens:auto;
+}
+.pubt-title a:hover{
+  color:var(--brand);
+  text-decoration:underline;
+}
+
+/* venue/subtitle: giống “meta” */
+.pubt-sub{
+  margin-top:4px;
+  font-size:13px;
+  line-height:1.45;
+  color:var(--muted);
+
+  overflow-wrap:anywhere;
+  hyphens:auto;
+}
+
+/* authors: nhỏ hơn 1 nhịp */
+.pubt-auth{
+  margin-top:6px;
+}
+
+/* mobile */
+@media (max-width: 720px){
+  .pub-row{ grid-template-columns:40px 1fr; }
+  .pub-bubble{ width:36px; height:36px; }
+  .pubt-title a{ font-size:15px; }
+}
+
+/* =========================
+   Publications — vertical list (no square cards)
+   Keep colors & font sizes unchanged
+   ========================= */
+
+/* Luôn 1 cột (dọc dọc) */
+.publist.pubgrid{
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+
+/* Bỏ kiểu "card vuông" -> chuyển thành list, có đường kẻ dưới */
+.pub-card{
+  padding: 12px 0;                 /* bỏ padding trái/phải kiểu card */
+  border: 0;                       /* bỏ viền card */
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;                /* bỏ bo góc */
+  background: transparent;         /* bỏ nền card */
+}
+
+/* Item cuối không cần đường kẻ */
+.pub-card:last-child{
+  border-bottom: 0;
+}
+
+/* Bỏ số counter (nếu muốn giống ảnh hơn) */
+.pub-card::before{
+  display: none;
+}
+
+/* Nếu muốn year + title xuống hàng đẹp hơn khi màn hình nhỏ */
+.pub-head{
+  flex-wrap: wrap;
+}
