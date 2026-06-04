@@ -29,6 +29,8 @@
 
 * {
   box-sizing: border-box;
+  font-family: "Poppins", sans-serif !important; 
+
 }
 
 html,
@@ -371,10 +373,11 @@ section.card {
 }
 
 section.card h2 {
-  font-family: "Times New Roman", Times, serif;
+  font-family: Arial, Helvetica, sans-serif;
   margin: 0 0 12px;
-  font-size: 16px;
+  font-size: 20px;
   letter-spacing: .2px;
+  border-bottom: 3px solid color-mix(in oklab, var(--brand2) 35%, var(--line));
 }
 
 /* Mở rộng layout: main rộng hơn, sidebar vừa phải */
