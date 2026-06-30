@@ -441,14 +441,14 @@ section.card h2 {
 
 .titem .when {
   font-family: var(--mono);
-  font-size: 12px;
+  font-size: 18px;
   color: var(--muted);
   padding-top: 3px;
 }
 
 .titem h3 {
   margin: 0;
-  font-size: 14px;
+  font-size: 18px;
 }
 
 .titem .meta {
@@ -486,7 +486,7 @@ section.card h2 {
 }
 
 .tag {
-  font-size: 18px;
+  font-size: 12px;
   padding: 6px 10px;
   border-radius: 999px;
   border: 1px solid var(--line);
