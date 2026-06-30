@@ -855,12 +855,12 @@ footer {
   margin: 0;
   font-size: 17px;
   line-height: 1.25;
-  font-weight: 700;
+  font-weight: 500;
   color: var(--text);
 }
 
 .cert-content h3 span {
-  font-weight: 700;
+  font-weight: 500;
 }
 
 .cert-meta {
